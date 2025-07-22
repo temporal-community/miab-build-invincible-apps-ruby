@@ -13,7 +13,7 @@ module Counter
         i = Temporalio::Workflow.execute_activity(
           AddOneActivity,
           i,
-          start_to_close_timeout: 60 # maximum time allowed for a single Activity Task Execution
+          start_to_close_timeout: 3 # maximum time allowed for a single Activity Task Execution
         )
         
         Temporalio::Workflow.sleep(3)
