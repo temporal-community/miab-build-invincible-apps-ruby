@@ -277,7 +277,7 @@ If a Timer fires and a Worker is not available, it will pick up when a Worker be
     2. Explain to the audience this is because there is no Worker running.
 8.  Go back to the terminal and restart the Worker:
     ```bash
-    npm run start
+    bundle exec ruby lib/worker.rb
     ```
 9.  The greeting should immediately return similar to the original:
     ```
