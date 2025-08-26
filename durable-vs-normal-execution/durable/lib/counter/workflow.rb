@@ -5,10 +5,10 @@ module Counter
   class CountingWorkflow < Temporalio::Workflow::Definition
     def execute
       i = 1
-      Temporalio::Workflow.logger.warn("***Counting to 10***")
+      puts "***Counting to 10***"
       
       while i <= 10
-        Temporalio::Workflow.logger.warn(i.to_s)
+        puts i.to_s
         
         i = Temporalio::Workflow.execute_activity(
           AddOneActivity,
@@ -19,7 +19,7 @@ module Counter
         Temporalio::Workflow.sleep(3)
       end
       
-      Temporalio::Workflow.logger.warn("***Finished counting to 10***")
+      Temporalio::Workflow.logger.info("***Finished counting to 10***")
     end
   end
 end

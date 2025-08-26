@@ -15,7 +15,7 @@ module IPGeolocate
       location = Temporalio::Workflow.execute_activity(
         GetLocationActivity,
         ip,
-        schedule_to_close_timeout: 5
+        start_to_close_timeout: 5,
       )
       
       "Hello, #{name}. Your IP is #{ip} and you are located in #{location}."

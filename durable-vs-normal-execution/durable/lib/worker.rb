@@ -17,4 +17,5 @@ worker = Temporalio::Worker.new(
   activities: [Counter::AddOneActivity]
 )
 
+puts "Worker started. Press Ctrl+C to stop."
 worker.run(shutdown_signals: ['SIGINT'])

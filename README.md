@@ -202,7 +202,7 @@ Metrics: http://localhost:65134/metrics
       bundle exec ruby -S rackup server/config.ru -p 8000 -o 0.0.0.0
       ```
 4. Open a browser tab to [http://127.0.0.1:8000](http://127.0.0.1:8000) to view the web application.
-5. Open a browser tab to [http://127.0.0.1:8080](http://127.0.0.1:8080) to view the Temporal Web UI.
+5. Open a browser tab to [http://localhost:8080](hhttp://localhost:8080) to view the Temporal Web UI.
 
 ### Demo #1 Successful Execution
 
