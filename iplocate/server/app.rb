@@ -12,10 +12,11 @@ class App < Sinatra::Base
   end
 
   # Execute the Temporal Workflow
-  def start_workflow(name)
+  def start_workflow(name, sleep_duration = nil)
     settings.temporal_client.execute_workflow(
       IPGeolocate::GetAddressFromIPWorkflow,
       name, # Workflow input
+      sleep_duration,
       id: "workflow-ip-geolocate-#{SecureRandom.uuid}",
       task_queue: IPGeolocate::TASK_QUEUE_NAME
     )
@@ -25,7 +26,9 @@ class App < Sinatra::Base
   post '/submit' do
     begin
       name = params[:name]
-      result = start_workflow(name)
+      sleep_duration = params[:sleep_duration]
+      sleep_duration = sleep_duration.to_i if sleep_duration && !sleep_duration.empty?
+      result = start_workflow(name, sleep_duration)
       "<p>#{result}</p>"
     rescue StandardError
       "<p>An error occurred</p>"

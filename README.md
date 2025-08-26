@@ -131,8 +131,6 @@ Mention that for this sample, there's a running process that executes the code a
    bundle exec ruby lib/client.rb
    ```
 
-This code will exit immediately. Return to the other terminal.
-
 6. In the previous terminal you should see the output of the loop. Once the loop gets to 4 or 5, CTRL-C the process and kill it.
 
 7. Ask the same question from the previous demo:
@@ -219,7 +217,7 @@ We can use the Web UI to debug issues when they go wrong.
 1. Prepare the audience with an introduction to the demo:
    > "First, let's see the application work successfully. This application is a distributed take on a Hello World program. It takes a user's name, and makes HTTP calls to two different services. The first service retrieves the IP address of the requester and returns it, and the second service takes an IP address and uses it to perform a geo-lookup. This means that the result of the first request will be used as the input for the second request. Once both requests have completed, the application will return a greeting, saying hello, your IP address, and what city you are currently in."
 
-2. Enter your name in the text field **Enter your name** in the web application and press the **Get Address** button.
+2. Enter your name in the text field **Enter your name** in the web application and press the **Get Greeting** button.
 
 3. The app will return a greeting immediately similar to the following:
    ```
@@ -229,7 +227,7 @@ We can use the Web UI to debug issues when they go wrong.
 
 4. Open the Web UI and walk through the Event History, highlighting the following things:
    1. The input and output to the Workflow
-   2. The input and output to each Activity, noting how the input to the `getLocationInfo` Activity was the output from the `getIP` Activity.
+   2. The input and output to each Activity, noting how the input to the `GetLocationInfo` Activity was the output from the `GetIP` Activity.
    3. The timeline view
    4. Anything else you find interesting that you wish to point out, or any anecdotes on how you use the Web UI
 
@@ -339,7 +337,7 @@ If a Timer fires and a Worker is not available, it will pick up when a Worker be
 3. Enter an audience member's name in the text field **Enter your name** in the web application.
 4. Observe that a result was not displayed.
 5. Go to the Temporal Web UI and you'll see the `GetIPActivity` Activity is failing due to the invalid URL supplied.
-6. Return to your text editor and modify `activities.ts`, adding the `h` back to `http`.
+6. Return to your text editor and modify `get_ip_activity.rb`, adding the `h` back to `http`.
 7. Restart the Worker by first killing it with `CTRL-C` and then running:
    ```bash
    bundle exec ruby lib/worker.rb
