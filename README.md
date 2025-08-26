@@ -192,7 +192,11 @@ Metrics: http://localhost:65134/metrics
       ```bash
       bundle exec ruby lib/worker.rb
       ```
-3. In the third terminal, run the following commands to start the web application:
+3. In a new terminal window, run the client app to start the Workflow:
+      ```bash
+      bundle exec ruby lib/client.rb Drew
+      ```
+4. In the third terminal, run the following commands to start the web application:
    1. Change directories into the `iplocate` directory:
       ```bash
       cd iplocate
@@ -201,8 +205,8 @@ Metrics: http://localhost:65134/metrics
       ```bash
       bundle exec ruby -S rackup server/config.ru -p 8000 -o 0.0.0.0
       ```
-4. Open a browser tab to [http://127.0.0.1:8000](http://127.0.0.1:8000) to view the web application.
-5. Open a browser tab to [http://localhost:8080](hhttp://localhost:8080) to view the Temporal Web UI.
+5. Open a browser tab to [http://127.0.0.1:8000](http://127.0.0.1:8000) to view the web application.
+6. Open a browser tab to [http://localhost:8080](hhttp://localhost:8080) to view the Temporal Web UI.
 
 ### Demo #1 Successful Execution
 
